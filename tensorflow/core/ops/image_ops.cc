@@ -775,8 +775,9 @@ output: `images` converted to RGB.
 REGISTER_OP("DrawBoundingBoxes")
     .Input("images: T")
     .Input("boxes: float")
-    .Output("output: T")
+	.Output("output: T")
     .Attr("T: {float, half} = DT_FLOAT")
+	.Attr("fill: bool = false")
     .SetShapeFn([](InferenceContext* c) {
       return shape_inference::UnchangedShapeWithRankAtLeast(c, 3);
     })
